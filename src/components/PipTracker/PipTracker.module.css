@@ -1,0 +1,11 @@
+.tracker { display: flex; align-items: center; gap: var(--space-sm); }
+.pips { display: flex; gap: 4px; flex-wrap: wrap; }
+.pip {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  background: transparent;
+  transition: background var(--transition);
+}
+.pip.filled { background: var(--color-accent); }
+.pip:hover { opacity: 0.7; }
