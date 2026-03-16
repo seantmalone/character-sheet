@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(/Users/sean/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.2/skills/brainstorming/scripts/start-server.sh --project-dir /Users/sean/Projects/CharacterSheet)"
+    ]
+  }
+}
