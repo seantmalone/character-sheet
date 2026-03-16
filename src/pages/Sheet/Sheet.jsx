@@ -6,6 +6,9 @@ import SummaryBar from './SummaryBar'
 import AbilitiesTab from './tabs/AbilitiesTab'
 import CombatTab from './tabs/CombatTab'
 import SpellsTab from './tabs/SpellsTab'
+import EquipmentTab from './tabs/EquipmentTab'
+import FeaturesTab from './tabs/FeaturesTab'
+import BiographyTab from './tabs/BiographyTab'
 import styles from './Sheet.module.css'
 
 const TABS = ['Abilities', 'Combat', 'Spells', 'Equipment', 'Features', 'Biography']
@@ -51,9 +54,9 @@ export default function Sheet() {
           {activeTab === 'Abilities' && <AbilitiesTab character={character} />}
           {activeTab === 'Combat' && <CombatTab character={character} />}
           {activeTab === 'Spells' && <SpellsTab character={character} />}
-          {activeTab === 'Equipment' && <div>Equipment tab — Chunk 10</div>}
-          {activeTab === 'Features' && <div>Features tab — Chunk 10</div>}
-          {activeTab === 'Biography' && <div>Biography tab — Chunk 10</div>}
+          {activeTab === 'Equipment' && <EquipmentTab character={character} />}
+          {activeTab === 'Features' && <FeaturesTab character={character} />}
+          {activeTab === 'Biography' && <BiographyTab character={character} />}
         </div>
       </div>
     </div>
