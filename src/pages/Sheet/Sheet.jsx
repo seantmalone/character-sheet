@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useCharacterStore } from '../../store/characters'
 import { useDerivedStats } from '../../hooks/useDerivedStats'
 import SummaryBar from './SummaryBar'
+import AbilitiesTab from './tabs/AbilitiesTab'
 import styles from './Sheet.module.css'
 
 const TABS = ['Abilities', 'Combat', 'Spells', 'Equipment', 'Features', 'Biography']
@@ -45,7 +46,7 @@ export default function Sheet() {
         </nav>
 
         <div className={styles.tabContent} role="tabpanel" aria-label={activeTab}>
-          {activeTab === 'Abilities' && <div>Abilities tab — Chunk 7</div>}
+          {activeTab === 'Abilities' && <AbilitiesTab character={character} />}
           {activeTab === 'Combat' && <div>Combat tab — Chunk 8</div>}
           {activeTab === 'Spells' && <div>Spells tab — Chunk 9</div>}
           {activeTab === 'Equipment' && <div>Equipment tab — Chunk 10</div>}
