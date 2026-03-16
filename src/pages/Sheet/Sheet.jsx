@@ -3,6 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useCharacterStore } from '../../store/characters'
 import { useDerivedStats } from '../../hooks/useDerivedStats'
 import SummaryBar from './SummaryBar'
+import ShortRestModal from './modals/ShortRestModal'
+import LongRestModal from './modals/LongRestModal'
+import LevelUpModal from './modals/LevelUpModal'
 import AbilitiesTab from './tabs/AbilitiesTab'
 import CombatTab from './tabs/CombatTab'
 import SpellsTab from './tabs/SpellsTab'
@@ -18,6 +21,7 @@ export default function Sheet() {
   const navigate = useNavigate()
   const character = useCharacterStore(state => state.characters.find(c => c.id === id))
   const [activeTab, setActiveTab] = useState('Abilities')
+  const [modal, setModal] = useState(null)
 
   if (!character) {
     navigate('/')
@@ -31,10 +35,14 @@ export default function Sheet() {
       <SummaryBar
         character={character}
         derived={derived}
-        onShortRest={() => {/* Short Rest modal — implemented in Chunk 12 */}}
-        onLongRest={() => {/* Long Rest modal — implemented in Chunk 12 */}}
-        onLevelUp={() => {/* Level Up modal — implemented in Chunk 12 */}}
+        onShortRest={() => setModal('shortRest')}
+        onLongRest={() => setModal('longRest')}
+        onLevelUp={() => setModal('levelUp')}
       />
+
+      {modal === 'shortRest' && <ShortRestModal character={character} onClose={() => setModal(null)} />}
+      {modal === 'longRest' && <LongRestModal character={character} onClose={() => setModal(null)} />}
+      {modal === 'levelUp' && <LevelUpModal character={character} onClose={() => setModal(null)} />}
 
       <div className={styles.body}>
         <nav className={styles.tabs} role="tablist" aria-label="Character sheet tabs">

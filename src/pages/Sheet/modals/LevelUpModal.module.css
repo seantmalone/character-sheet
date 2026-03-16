@@ -1,0 +1,12 @@
+.progress { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+.step { padding: 2px var(--space-sm); border-radius: var(--radius-sm); font-size: var(--text-xs); background: var(--color-bg-alt); color: var(--color-muted); }
+.active { background: var(--color-accent); color: white; font-weight: var(--weight-bold); }
+.done { background: var(--color-bg-alt); color: var(--color-accent); }
+.section { display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-lg); }
+.hpButtons { display: flex; gap: var(--space-sm); }
+.preview { font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-accent); }
+.spellPicker { display: flex; flex-direction: column; gap: var(--space-xs); max-height: 300px; overflow-y: auto; }
+.spellOption { display: flex; align-items: center; gap: var(--space-xs); font-size: var(--text-sm); cursor: pointer; }
+.asiOptions { display: flex; gap: var(--space-lg); }
+.splitPicker { display: flex; gap: var(--space-sm); }
+.nav { display: flex; justify-content: space-between; padding-top: var(--space-md); border-top: 1px solid var(--color-border-light); }
