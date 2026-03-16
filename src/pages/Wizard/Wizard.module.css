@@ -1,0 +1,5 @@
+.wizard { max-width: 640px; margin: 0 auto; padding: var(--space-2xl) var(--space-md); display: flex; flex-direction: column; gap: var(--space-xl); }
+.progress { display: flex; justify-content: center; gap: var(--space-sm); flex-wrap: wrap; }
+.dot { padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); font-size: var(--text-xs); background: var(--color-bg-alt); color: var(--color-muted); }
+.active { background: var(--color-accent); color: white; font-weight: var(--weight-bold); }
+.done { background: var(--color-bg-alt); color: var(--color-accent); }
