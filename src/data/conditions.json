@@ -1,0 +1,17 @@
+[
+  { "id": "blinded", "name": "Blinded", "description": "A blinded creature can't see and automatically fails any ability check that requires sight. Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage." },
+  { "id": "charmed", "name": "Charmed", "description": "A charmed creature can't attack the charmer or target the charmer with harmful abilities or magical effects. The charmer has advantage on any ability check to interact socially with the creature." },
+  { "id": "deafened", "name": "Deafened", "description": "A deafened creature can't hear and automatically fails any ability check that requires hearing." },
+  { "id": "exhaustion", "name": "Exhaustion", "description": "Levels 1–6: 1=Disadvantage on ability checks; 2=Speed halved; 3=Disadvantage on attacks and saving throws; 4=HP maximum halved; 5=Speed reduced to 0; 6=Death." },
+  { "id": "frightened", "name": "Frightened", "description": "A frightened creature has disadvantage on ability checks and attack rolls while the source of its fear is within line of sight. The creature can't willingly move closer to the source." },
+  { "id": "grappled", "name": "Grappled", "description": "A grappled creature's speed becomes 0, and it can't benefit from any bonus to its speed. The condition ends if the grappler is incapacitated or the creature is moved outside the grappler's reach." },
+  { "id": "incapacitated", "name": "Incapacitated", "description": "An incapacitated creature can't take actions or reactions." },
+  { "id": "invisible", "name": "Invisible", "description": "An invisible creature is impossible to see without special sense. Attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage." },
+  { "id": "paralyzed", "name": "Paralyzed", "description": "A paralyzed creature is incapacitated and can't move or speak. Attack rolls against the creature have advantage. Any attack that hits is a critical hit if the attacker is within 5 feet." },
+  { "id": "petrified", "name": "Petrified", "description": "A petrified creature is transformed into solid inanimate substance, is incapacitated, unaware of surroundings, and has resistance to all damage and immunity to poison and disease." },
+  { "id": "poisoned", "name": "Poisoned", "description": "A poisoned creature has disadvantage on attack rolls and ability checks." },
+  { "id": "prone", "name": "Prone", "description": "A prone creature's only movement option is to crawl, unless it stands up. The creature has disadvantage on attack rolls. Attack rolls against it have advantage if the attacker is within 5 feet, disadvantage otherwise." },
+  { "id": "restrained", "name": "Restrained", "description": "A restrained creature's speed becomes 0. Attack rolls against it have advantage, and its attack rolls have disadvantage. It has disadvantage on DEX saving throws." },
+  { "id": "stunned", "name": "Stunned", "description": "A stunned creature is incapacitated, can't move, and can speak only falteringly. The creature automatically fails STR and DEX saving throws. Attack rolls against it have advantage." },
+  { "id": "unconscious", "name": "Unconscious", "description": "An unconscious creature is incapacitated, can't move or speak, and is unaware of its surroundings. It drops whatever it's holding and falls prone. Attack rolls against it have advantage. Any attack that hits is a critical hit if the attacker is within 5 feet." }
+]
