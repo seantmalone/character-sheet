@@ -1,0 +1,32 @@
+.card {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.portrait {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--color-accent);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xl);
+  font-family: var(--font-serif);
+  font-weight: var(--weight-bold);
+  flex-shrink: 0;
+}
+.info { flex: 1; min-width: 0; }
+.name { font-family: var(--font-serif); font-size: var(--text-md); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.details { font-size: var(--text-sm); color: var(--color-muted); text-transform: capitalize; }
+.player { font-size: var(--text-xs); color: var(--color-muted); }
+.actions { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; justify-content: flex-end; }
+.primary { background: var(--color-accent); color: white; padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); }
+.primary:hover { background: var(--color-accent-hover); }
+.danger { color: var(--color-danger); }
+.confirmText { font-size: var(--text-sm); color: var(--color-danger); }
+.xpBar { height: 4px; background: var(--color-border); border-radius: 2px; margin-top: var(--space-xs); overflow: hidden; }
+.xpFill { height: 100%; background: var(--color-accent); border-radius: 2px; transition: width 0.3s ease; }
+.xpLabel { font-size: var(--text-xs); color: var(--color-muted); margin-top: 2px; }
