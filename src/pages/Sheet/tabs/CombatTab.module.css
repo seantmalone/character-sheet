@@ -1,0 +1,18 @@
+.tab { display: flex; flex-direction: column; gap: var(--space-xl); }
+.section { display: flex; flex-direction: column; gap: var(--space-md); }
+.sectionTitle { font-family: var(--font-serif); font-size: var(--text-md); border-bottom: 1px solid var(--color-border-light); padding-bottom: var(--space-xs); }
+.acRow { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+.acValue { font-size: var(--text-2xl); font-weight: var(--weight-bold); min-width: 44px; text-align: center; }
+.shieldLabel { display: flex; align-items: center; gap: var(--space-xs); font-size: var(--text-sm); cursor: pointer; }
+.attackTable { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.attackTable th { text-align: left; padding: var(--space-xs); color: var(--color-muted); border-bottom: 1px solid var(--color-border); }
+.attackTable td { padding: var(--space-xs); border-bottom: 1px solid var(--color-border-light); }
+.addAttack { display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap; }
+.sneakRow { display: flex; align-items: center; gap: var(--space-md); }
+.initiativeRow { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; }
+.initiativeValue { font-size: var(--text-2xl); font-weight: var(--weight-bold); min-width: 44px; text-align: center; }
+.initiativeLabel { font-size: var(--text-sm); color: var(--color-muted); }
+.speedRow { display: flex; align-items: center; gap: var(--space-sm); }
+.speedLabel { font-size: var(--text-sm); color: var(--color-muted); }
+.hitDiceRow { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+.conditions { display: flex; gap: var(--space-xs); flex-wrap: wrap; }
