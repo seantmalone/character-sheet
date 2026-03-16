@@ -1,0 +1,95 @@
+[
+  {
+    "id": "dwarf", "name": "Dwarf", "size": "Medium", "speed": 25,
+    "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 2, "int": 0, "wis": 0, "cha": 0 },
+    "darkvision": 60,
+    "traits": [
+      { "name": "Dwarven Resilience", "description": "Advantage on saving throws against poison, resistance against poison damage." },
+      { "name": "Stonecunning", "description": "Double proficiency bonus on History checks related to stonework." }
+    ],
+    "languages": ["common", "dwarvish"],
+    "subraces": [
+      {
+        "id": "hill-dwarf", "name": "Hill Dwarf",
+        "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 1, "cha": 0 },
+        "traits": [{ "name": "Dwarven Toughness", "description": "HP maximum increases by 1, and again by 1 every time you gain a level." }]
+      },
+      {
+        "id": "mountain-dwarf", "name": "Mountain Dwarf",
+        "abilityScoreIncreases": { "str": 2, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+        "traits": [{ "name": "Dwarven Armor Training", "description": "You have proficiency with light and medium armor." }]
+      }
+    ]
+  },
+  {
+    "id": "elf", "name": "Elf", "size": "Medium", "speed": 30,
+    "abilityScoreIncreases": { "str": 0, "dex": 2, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+    "darkvision": 60,
+    "traits": [
+      { "name": "Fey Ancestry", "description": "Advantage on saving throws against being charmed, and magic can't put you to sleep." },
+      { "name": "Keen Senses", "description": "Proficiency in Perception." },
+      { "name": "Trance", "description": "Elves don't need to sleep. Instead, they meditate deeply for 4 hours a day." }
+    ],
+    "languages": ["common", "elvish"],
+    "subraces": [
+      {
+        "id": "high-elf", "name": "High Elf",
+        "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 0, "int": 1, "wis": 0, "cha": 0 },
+        "traits": [{ "name": "Cantrip", "description": "You know one cantrip of your choice from the wizard spell list." }]
+      },
+      {
+        "id": "wood-elf", "name": "Wood Elf",
+        "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 1, "cha": 0 },
+        "speed": 35,
+        "darkvision": null,
+        "traits": [
+          { "name": "Fleet of Foot", "description": "Base walking speed increases to 35 feet." },
+          { "name": "Mask of the Wild", "description": "Can attempt to hide when lightly obscured by foliage, rain, snow, mist, or other natural phenomena." }
+        ]
+      },
+      {
+        "id": "dark-elf", "name": "Dark Elf (Drow)",
+        "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 1 },
+        "speed": null,
+        "darkvision": 120,
+        "traits": [
+          { "name": "Superior Darkvision", "description": "Darkvision range of 120 feet." },
+          { "name": "Sunlight Sensitivity", "description": "Disadvantage on attack rolls and Perception checks in direct sunlight." },
+          { "name": "Drow Magic", "description": "You know the dancing lights cantrip." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "halfling", "name": "Halfling", "size": "Small", "speed": 25,
+    "abilityScoreIncreases": { "str": 0, "dex": 2, "con": 0, "int": 0, "wis": 0, "cha": 0 },
+    "darkvision": null,
+    "traits": [
+      { "name": "Lucky", "description": "When you roll a 1 on a d20, you can reroll and must use the new roll." },
+      { "name": "Brave", "description": "Advantage on saving throws against being frightened." },
+      { "name": "Halfling Nimbleness", "description": "Can move through the space of any creature that is of a size larger than yours." }
+    ],
+    "languages": ["common", "halfling"],
+    "subraces": [
+      {
+        "id": "lightfoot", "name": "Lightfoot Halfling",
+        "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 0, "int": 0, "wis": 0, "cha": 1 },
+        "traits": [{ "name": "Naturally Stealthy", "description": "Can attempt to hide when obscured by a creature that is at least one size larger than you." }]
+      },
+      {
+        "id": "stout", "name": "Stout Halfling",
+        "abilityScoreIncreases": { "str": 0, "dex": 0, "con": 1, "int": 0, "wis": 0, "cha": 0 },
+        "traits": [{ "name": "Stout Resilience", "description": "Advantage on saving throws against poison, resistance against poison damage." }]
+      }
+    ]
+  },
+  {
+    "id": "human", "name": "Human", "size": "Medium", "speed": 30,
+    "abilityScoreIncreases": { "str": 1, "dex": 1, "con": 1, "int": 1, "wis": 1, "cha": 1 },
+    "darkvision": null,
+    "traits": [],
+    "languages": ["common"],
+    "extraLanguages": 1,
+    "subraces": []
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "id": "cleric", "name": "Cleric", "hitDie": 8,
+    "spellcastingAbility": "wis",
+    "savingThrowProficiencies": ["wis", "cha"],
+    "armorProficiencies": ["light", "medium", "heavy", "shields"],
+    "weaponProficiencies": ["simple"],
+    "toolProficiencies": [],
+    "skillChoices": { "count": 2, "options": ["history","insight","medicine","persuasion","religion"] },
+    "asiLevels": [4, 8, 12, 16, 19],
+    "spellSlotProgression": {
+      "1": {"1":2}, "2": {"1":3}, "3": {"1":4,"2":2}, "4": {"1":4,"2":3},
+      "5": {"1":4,"2":3,"3":2}, "6": {"1":4,"2":3,"3":3},
+      "7": {"1":4,"2":3,"3":3,"4":1}, "8": {"1":4,"2":3,"3":3,"4":2},
+      "9": {"1":4,"2":3,"3":3,"4":3,"5":1}, "10": {"1":4,"2":3,"3":3,"4":3,"5":2},
+      "11": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1}, "12": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1},
+      "13": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1}, "14": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1},
+      "15": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1,"8":1}, "16": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1,"8":1},
+      "17": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1,"8":1,"9":1}, "18": {"1":4,"2":3,"3":3,"4":3,"5":3,"6":1,"7":1,"8":1,"9":1},
+      "19": {"1":4,"2":3,"3":3,"4":3,"5":3,"6":1,"7":1,"8":1,"9":1}, "20": {"1":4,"2":3,"3":3,"4":3,"5":3,"6":1,"7":1,"8":1,"9":1}
+    },
+    "features": [
+      { "level": 1, "name": "Spellcasting", "description": "You can cast cleric spells. Wisdom is your spellcasting ability.", "uses": null, "recharge": null },
+      { "level": 1, "name": "Divine Domain", "description": "Choose a domain related to your deity. Your choice grants you domain spells and other features at levels 1, 2, 6, 8, and 17.", "uses": null, "recharge": null },
+      { "level": 2, "name": "Channel Divinity: Turn Undead", "description": "As an action, present your holy symbol and speak a prayer censuring the undead. Each undead within 30 feet must make a Wisdom saving throw.", "uses": 1, "recharge": "short-rest" },
+      { "level": 5, "name": "Destroy Undead (CR 1/2)", "description": "When an undead fails its saving throw against your Turn Undead, the creature is instantly destroyed if its CR is 1/2 or lower.", "uses": null, "recharge": null },
+      { "level": 6, "name": "Channel Divinity: 2 Uses", "description": "You can use Channel Divinity twice between rests.", "uses": 2, "recharge": "short-rest" },
+      { "level": 10, "name": "Divine Intervention", "description": "You can call on your deity to intervene on your behalf. Roll d100; if you roll equal to or lower than your cleric level, your deity intervenes.", "uses": 1, "recharge": "day" },
+      { "level": 18, "name": "Channel Divinity: 3 Uses", "description": "You can use Channel Divinity three times between rests.", "uses": 3, "recharge": "short-rest" }
+    ]
+  },
+  {
+    "id": "fighter", "name": "Fighter", "hitDie": 10,
+    "spellcastingAbility": null,
+    "savingThrowProficiencies": ["str", "con"],
+    "armorProficiencies": ["light", "medium", "heavy", "shields"],
+    "weaponProficiencies": ["simple", "martial"],
+    "toolProficiencies": [],
+    "skillChoices": { "count": 2, "options": ["acrobatics","animal-handling","athletics","history","insight","intimidation","perception","survival"] },
+    "asiLevels": [4, 6, 8, 12, 14, 16, 19],
+    "spellSlotProgression": null,
+    "features": [
+      { "level": 1, "name": "Fighting Style", "description": "Choose a fighting style specialty: Archery (+2 ranged attack rolls), Defense (+1 AC in armor), Dueling (+2 damage with one-handed weapon), Great Weapon Fighting (reroll 1s and 2s on damage with two-handed weapons), Protection (impose disadvantage on attacks against adjacent allies), or Two-Weapon Fighting (add ability modifier to off-hand attacks).", "uses": null, "recharge": null },
+      { "level": 1, "name": "Second Wind", "description": "As a bonus action, regain 1d10 + your fighter level HP. You can use this feature once per short or long rest.", "uses": 1, "recharge": "short-rest" },
+      { "level": 2, "name": "Action Surge", "description": "On your turn, you can take one additional action. Once you use this feature, you must finish a short or long rest before you can use it again.", "uses": 1, "recharge": "short-rest" },
+      { "level": 3, "name": "Martial Archetype", "description": "Choose an archetype that reflects your style and technique (Champion, Battle Master, or Eldritch Knight).", "uses": null, "recharge": null },
+      { "level": 5, "name": "Extra Attack", "description": "Beginning at 5th level, you can attack twice whenever you take the Attack action.", "uses": null, "recharge": null },
+      { "level": 9, "name": "Indomitable", "description": "You can reroll a saving throw that you fail. You must use the new roll. You can use this feature once between long rests.", "uses": 1, "recharge": "long-rest" }
+    ]
+  },
+  {
+    "id": "rogue", "name": "Rogue", "hitDie": 8,
+    "spellcastingAbility": null,
+    "savingThrowProficiencies": ["dex", "int"],
+    "armorProficiencies": ["light"],
+    "weaponProficiencies": ["simple", "hand-crossbow", "longsword", "rapier", "shortsword"],
+    "toolProficiencies": ["thieves-tools"],
+    "skillChoices": { "count": 4, "options": ["acrobatics","athletics","deception","insight","intimidation","investigation","perception","performance","persuasion","sleight-of-hand","stealth"] },
+    "asiLevels": [4, 8, 10, 12, 16, 19],
+    "spellSlotProgression": null,
+    "features": [
+      { "level": 1, "name": "Expertise", "description": "Choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check using those skills.", "uses": null, "recharge": null },
+      { "level": 1, "name": "Sneak Attack", "description": "Once per turn, deal extra damage to one creature you hit with a finesse or ranged weapon if you have advantage or an ally is adjacent to the target. The extra damage increases as you gain levels.", "uses": null, "recharge": null },
+      { "level": 1, "name": "Thieves' Cant", "description": "Secret mix of dialect, jargon, and code. Takes 4 times longer to convey a message in cant than normal speech.", "uses": null, "recharge": null },
+      { "level": 2, "name": "Cunning Action", "description": "As a bonus action, Dash, Disengage, or Hide.", "uses": null, "recharge": null },
+      { "level": 3, "name": "Roguish Archetype", "description": "Choose an archetype that reflects your character's focus (Thief, Assassin, or Arcane Trickster).", "uses": null, "recharge": null },
+      { "level": 5, "name": "Uncanny Dodge", "description": "When an attacker you can see hits you with an attack, use your reaction to halve the attack's damage.", "uses": null, "recharge": null },
+      { "level": 7, "name": "Evasion", "description": "When subjected to an effect that allows a DEX saving throw for half damage, take no damage on a success and only half on a failure.", "uses": null, "recharge": null }
+    ]
+  },
+  {
+    "id": "wizard", "name": "Wizard", "hitDie": 6,
+    "spellcastingAbility": "int",
+    "savingThrowProficiencies": ["int", "wis"],
+    "armorProficiencies": [],
+    "weaponProficiencies": ["dagger", "dart", "sling", "quarterstaff", "light-crossbow"],
+    "toolProficiencies": [],
+    "skillChoices": { "count": 2, "options": ["arcana","history","insight","investigation","medicine","religion"] },
+    "asiLevels": [4, 8, 12, 16, 19],
+    "spellSlotProgression": {
+      "1": {"1":2}, "2": {"1":3}, "3": {"1":4,"2":2}, "4": {"1":4,"2":3},
+      "5": {"1":4,"2":3,"3":2}, "6": {"1":4,"2":3,"3":3},
+      "7": {"1":4,"2":3,"3":3,"4":1}, "8": {"1":4,"2":3,"3":3,"4":2},
+      "9": {"1":4,"2":3,"3":3,"4":3,"5":1}, "10": {"1":4,"2":3,"3":3,"4":3,"5":2},
+      "11": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1}, "12": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1},
+      "13": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1}, "14": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1},
+      "15": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1,"8":1}, "16": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1,"8":1},
+      "17": {"1":4,"2":3,"3":3,"4":3,"5":2,"6":1,"7":1,"8":1,"9":1}, "18": {"1":4,"2":3,"3":3,"4":3,"5":3,"6":1,"7":1,"8":1,"9":1},
+      "19": {"1":4,"2":3,"3":3,"4":3,"5":3,"6":1,"7":1,"8":1,"9":1}, "20": {"1":4,"2":3,"3":3,"4":3,"5":3,"6":1,"7":1,"8":1,"9":1}
+    },
+    "features": [
+      { "level": 1, "name": "Spellcasting", "description": "You can cast wizard spells. Intelligence is your spellcasting ability. Your spellbook contains six 1st-level wizard spells.", "uses": null, "recharge": null },
+      { "level": 1, "name": "Arcane Recovery", "description": "Once per day after a short rest, recover spell slots whose combined level is no more than half your wizard level (rounded up). Cannot recover slots of 6th level or higher.", "uses": 1, "recharge": "day" },
+      { "level": 2, "name": "Arcane Tradition", "description": "Choose an arcane tradition (School of Evocation, School of Abjuration, etc.).", "uses": null, "recharge": null },
+      { "level": 18, "name": "Spell Mastery", "description": "Choose a 1st-level and a 2nd-level spell. You can cast each at its lowest level without expending a spell slot.", "uses": null, "recharge": null },
+      { "level": 20, "name": "Signature Spells", "description": "Choose two 3rd-level wizard spells. You always have them prepared and can cast each once without expending a spell slot.", "uses": null, "recharge": null }
+    ]
+  }
+]
