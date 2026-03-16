@@ -137,6 +137,7 @@ export default function PrintView() {
             <div key={f.id} className={styles.feature}>
               <strong>{f.name}</strong> <em>({f.source})</em>
               {f.maxUses !== null && ` — Uses: ${f.uses}/${f.maxUses} [${f.recharge}]`}
+              {f.description && <p>{f.description}</p>}
             </div>
           ))}
         </section>

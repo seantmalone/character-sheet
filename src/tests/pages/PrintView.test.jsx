@@ -51,6 +51,6 @@ describe('PrintView', () => {
 
   it('shows spells section for casters', () => {
     renderPrint()
-    expect(screen.getByText(/spell slots/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /spell slots/i })).toBeInTheDocument()
   })
 })
