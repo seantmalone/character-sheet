@@ -4,6 +4,7 @@ import WizardStep from './WizardStep'
 import { useCharacterStore } from '../../store/characters'
 import { buildCharacterFromDraft } from '../../utils/buildCharacterFromDraft'
 import { getAbilityModifier, getProficiencyBonus } from '../../utils/calculations'
+import styles from './Step6Review.module.css'
 import races from '../../data/races.json'
 import classes from '../../data/classes.json'
 import backgrounds from '../../data/backgrounds.json'
@@ -60,7 +61,7 @@ export default function Step6Review() {
           const final = base + bonus
           const mod = getAbilityModifier(final)
           return (
-            <div key={a} style={{ display:'flex', gap:'var(--space-sm)' }}>
+            <div key={a} className={styles.abilityRow}>
               <dt><strong>{a.toUpperCase()}</strong></dt>
               <dd>{final} ({mod >= 0 ? `+${mod}` : mod}){bonus !== 0 && ` — base ${base} + ${bonus} racial`}</dd>
             </div>

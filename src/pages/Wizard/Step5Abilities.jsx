@@ -70,7 +70,7 @@ export default function Step5Abilities() {
               <span className={styles.label}>{LABELS[ability]}</span>
 
               {method === 'standard-array' && (
-                <select value={score ?? ''} onChange={e => updateAbilities({ [ability]: e.target.value !== '' ? Number(e.target.value) : null })}>
+                <select aria-label={`${LABELS[ability]} score`} value={score ?? ''} onChange={e => updateAbilities({ [ability]: e.target.value !== '' ? Number(e.target.value) : null })}>
                   <option value="">—</option>
                   {/* always include current value even if already counted in "used" */}
                   {[...(score !== null ? [score] : []), ...getAvailable(ability)].sort((a,b) => b-a).map(v => (
@@ -91,7 +91,7 @@ export default function Step5Abilities() {
               )}
 
               {method === 'manual' && (
-                <input type="number" value={score ?? ''} min={1} max={30}
+                <input type="number" aria-label={`${LABELS[ability]} score`} value={score ?? ''} min={1} max={30}
                   onChange={e => updateAbilities({ [ability]: e.target.value !== '' ? parseInt(e.target.value, 10) : null })} />
               )}
 
