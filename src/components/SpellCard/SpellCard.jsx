@@ -21,6 +21,7 @@ export default function SpellCard({ spell, prepared, onTogglePrepared, isCustom 
               className={`${styles.prepBtn} ${prepared ? styles.prepBtnActive : ''}`}
               onClick={e => { e.stopPropagation(); onTogglePrepared() }}
               aria-pressed={prepared}
+              aria-label={`${prepared ? 'Unprepare' : 'Prepare'} ${spell.name}`}
             >
               {prepared ? 'Prepared' : 'Prepare'}
             </button>

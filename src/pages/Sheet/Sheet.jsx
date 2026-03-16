@@ -5,6 +5,7 @@ import { useDerivedStats } from '../../hooks/useDerivedStats'
 import SummaryBar from './SummaryBar'
 import AbilitiesTab from './tabs/AbilitiesTab'
 import CombatTab from './tabs/CombatTab'
+import SpellsTab from './tabs/SpellsTab'
 import styles from './Sheet.module.css'
 
 const TABS = ['Abilities', 'Combat', 'Spells', 'Equipment', 'Features', 'Biography']
@@ -49,7 +50,7 @@ export default function Sheet() {
         <div className={styles.tabContent} role="tabpanel" aria-label={activeTab}>
           {activeTab === 'Abilities' && <AbilitiesTab character={character} />}
           {activeTab === 'Combat' && <CombatTab character={character} />}
-          {activeTab === 'Spells' && <div>Spells tab — Chunk 9</div>}
+          {activeTab === 'Spells' && <SpellsTab character={character} />}
           {activeTab === 'Equipment' && <div>Equipment tab — Chunk 10</div>}
           {activeTab === 'Features' && <div>Features tab — Chunk 10</div>}
           {activeTab === 'Biography' && <div>Biography tab — Chunk 10</div>}

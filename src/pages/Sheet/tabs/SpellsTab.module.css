@@ -1,0 +1,22 @@
+.tab { display: flex; flex-direction: column; gap: var(--space-xl); }
+.section { display: flex; flex-direction: column; gap: var(--space-md); }
+.sectionTitle { font-family: var(--font-serif); font-size: var(--text-md); border-bottom: 1px solid var(--color-border-light); padding-bottom: var(--space-xs); }
+.spellStats { display: flex; gap: var(--space-xl); }
+.spellStat { display: flex; flex-direction: column; align-items: center; }
+.statVal { font-size: var(--text-xl); font-weight: var(--weight-bold); }
+.statLabel { font-size: var(--text-xs); color: var(--color-muted); text-transform: uppercase; }
+.slotGrid { display: flex; flex-direction: column; gap: var(--space-sm); }
+.slotRow { display: flex; align-items: center; gap: var(--space-md); }
+.slotLevel { font-size: var(--text-sm); min-width: 90px; }
+.slotCount { color: var(--color-muted); }
+.arcaneBtn { align-self: flex-start; font-size: var(--text-sm); padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); border: 1px solid var(--color-accent); color: var(--color-accent); background: none; cursor: pointer; }
+.arcaneBtn:disabled { opacity: 0.5; cursor: default; }
+.filters { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+.filters input, .filters select { flex: 1; min-width: 120px; padding: var(--space-xs); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); font-size: var(--text-sm); }
+.spellList { display: flex; flex-direction: column; gap: var(--space-xs); }
+.spellCardWrapper { position: relative; display: flex; align-items: flex-start; gap: var(--space-xs); }
+.spellCardWrapper > :first-child { flex: 1; }
+.deleteSpellBtn { flex-shrink: 0; background: none; border: none; color: var(--color-muted); cursor: pointer; font-size: var(--text-lg); line-height: 1; padding: var(--space-xs); border-radius: var(--radius-sm); }
+.deleteSpellBtn:hover { color: var(--color-danger); }
+.empty { color: var(--color-muted); font-size: var(--text-sm); text-align: center; padding: var(--space-lg); }
+.addBtn { align-self: flex-start; font-size: var(--text-sm); color: var(--color-accent); background: none; border: none; cursor: pointer; }
