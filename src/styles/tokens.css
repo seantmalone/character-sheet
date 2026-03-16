@@ -1,0 +1,54 @@
+:root {
+  /* Colors */
+  --color-parchment: #f5f0e8;
+  --color-parchment-dark: #e8e0d0;
+  --color-ink: #2c1810;
+  --color-ink-light: #5c3d2e;
+  --color-accent: #8b1a1a;
+  --color-accent-hover: #6b1414;
+  --color-gold: #c8a951;
+  --color-success: #2d6a2d;
+  --color-warning: #8b6914;
+  --color-danger: #8b1a1a;
+  --color-surface: #ffffff;
+  --color-surface-raised: #faf7f2;
+  --color-border: #c4b89a;
+  --color-border-light: #ddd5c0;
+  --color-muted: #8a7a6a;
+  --color-overlay: rgba(44, 24, 16, 0.5);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Typography */
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* Layout */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(44,24,16,0.15);
+  --shadow-md: 0 3px 8px rgba(44,24,16,0.2);
+  --shadow-lg: 0 8px 24px rgba(44,24,16,0.25);
+  --transition: 150ms ease;
+
+  /* Summary bar height — referenced by sheet layout */
+  --summary-bar-height: 72px;
+}
