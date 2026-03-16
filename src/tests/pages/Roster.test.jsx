@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { useCharacterStore } from '../../store/characters'
+import { useSettingsStore } from '../../store/settings'
 import Roster from '../../pages/Roster/Roster'
 
 function renderRoster() {
@@ -12,6 +13,7 @@ function renderRoster() {
 describe('Roster', () => {
   beforeEach(() => {
     useCharacterStore.setState({ characters: [] })
+    useSettingsStore.setState({ globalAdvancedMode: false })
   })
 
   it('shows empty state when no characters', () => {

@@ -6,5 +6,5 @@ export function exportCharacter(character) {
   a.href = url
   a.download = `${character.meta.characterName.replace(/\s+/g, '_')}.json`
   a.click()
-  URL.revokeObjectURL(url)
+  setTimeout(() => URL.revokeObjectURL(url), 100)
 }
