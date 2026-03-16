@@ -25,7 +25,7 @@ export default function FeatureCard({ feature, onDelete, onUseChange, onUsesChan
           <h4 className={styles.name}>{feature.name}</h4>
           <div className={styles.meta}>
             {feature.recharge && (
-              <span className="label">{feature.recharge.replace('-', ' ')}</span>
+              <span className="label">{feature.recharge.replaceAll('-', ' ')}</span>
             )}
             {hasUses && (
               <PipTracker

@@ -8,13 +8,14 @@ import styles from './EquipmentTab.module.css'
 
 export default function EquipmentTab({ character }) {
   const { updateCharacter } = useCharacterStore()
-  const derived = useDerivedStats(character)
+  const liveCharacter = useCharacterStore(state => state.characters.find(c => c.id === character.id)) ?? character
+  const derived = useDerivedStats(liveCharacter)
   const [showAddForm, setShowAddForm] = useState(false)
   const [showCatalog, setShowCatalog] = useState(false)
   const [newItem, setNewItem] = useState({ name: '', quantity: 1, weight: 0, notes: '' })
   const [catalogId, setCatalogId] = useState('')
 
-  const { equipment, currency, settings } = character
+  const { equipment, currency, settings } = liveCharacter
   const totalWeight = equipment.reduce((s, e) => s + (e.weight * e.quantity), 0)
 
   function deleteItem(id) {

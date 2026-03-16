@@ -9,10 +9,11 @@ const SOURCES = ['class', 'race', 'background', 'custom']
 
 export default function FeaturesTab({ character }) {
   const { updateCharacter } = useCharacterStore()
+  const liveCharacter = useCharacterStore(state => state.characters.find(c => c.id === character.id)) ?? character
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState({ name: '', source: 'custom', description: '', uses: '', recharge: null })
 
-  const { features } = character
+  const { features } = liveCharacter
 
   function deleteFeature(id) {
     updateCharacter(character.id, { features: features.filter(f => f.id !== id) })
