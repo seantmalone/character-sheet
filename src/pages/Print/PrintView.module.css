@@ -1,0 +1,33 @@
+.page { max-width: 800px; margin: 0 auto; padding: var(--space-xl) var(--space-md); font-size: 12pt; }
+.printBtn { display: flex; gap: var(--space-sm); margin-bottom: var(--space-lg); }
+.header { margin-bottom: var(--space-lg); border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-md); }
+.charName { font-family: var(--font-serif); font-size: 24pt; margin: 0; }
+.headerMeta { display: flex; gap: var(--space-lg); flex-wrap: wrap; font-size: 11pt; color: var(--color-muted); }
+.section { margin-bottom: var(--space-xl); }
+.section h2 { font-family: var(--font-serif); font-size: 14pt; border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-sm); }
+.abilitiesRow { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-md); }
+.abilityBlock { display: flex; flex-direction: column; align-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-xs) var(--space-sm); min-width: 70px; }
+.abilityLabel { font-size: 8pt; font-weight: var(--weight-bold); text-transform: uppercase; color: var(--color-muted); }
+.abilityScore { font-size: 16pt; font-weight: var(--weight-bold); line-height: 1.1; }
+.abilityMod { font-size: 12pt; }
+.saveBonus { font-size: 8pt; color: var(--color-muted); }
+.skills { display: flex; flex-direction: column; gap: var(--space-xs); }
+.skillTable { border-collapse: collapse; font-size: 10pt; }
+.skillTable td { padding: 2px 4px; }
+.skillAbility { color: var(--color-muted); }
+.combatRow { display: flex; gap: var(--space-xl); flex-wrap: wrap; margin-bottom: var(--space-md); }
+.combatRow > div { text-align: center; }
+.attackTable, .eqTable { width: 100%; border-collapse: collapse; font-size: 10pt; margin-top: var(--space-sm); }
+.attackTable th, .eqTable th { text-align: left; border-bottom: 1px solid var(--color-border); padding: 2px 4px; }
+.attackTable td, .eqTable td { padding: 2px 4px; border-bottom: 1px solid var(--color-border-light); }
+.feature { margin-bottom: var(--space-sm); }
+.feature p { margin: 2px 0; font-size: 10pt; }
+.slotRow { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-sm); }
+.slotBadge { font-size: 10pt; padding: 2px 6px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+.printSpell { margin-bottom: var(--space-sm); }
+.printSpell p { margin: 2px 0; font-size: 10pt; }
+@page { margin: 10mm; }
+@media print {
+  .printBtn { display: none !important; }
+  .page { margin: 0; padding: 10mm; }
+}
