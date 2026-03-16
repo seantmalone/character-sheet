@@ -1,0 +1,12 @@
+.roller { display: inline-flex; align-items: center; gap: var(--space-sm); }
+.btn {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-accent);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  transition: background var(--transition);
+}
+.btn:hover { background: var(--color-accent-hover); }
+.result { font-weight: var(--weight-bold); min-width: 2ch; text-align: center; }
+.error { color: var(--color-danger); font-size: var(--text-sm); }

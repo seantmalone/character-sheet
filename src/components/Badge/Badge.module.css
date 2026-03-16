@@ -1,0 +1,11 @@
+.badge {
+  display: inline-block;
+  padding: 1px var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.03em;
+}
+.default { background: var(--color-parchment-dark); color: var(--color-ink-light); }
+.homebrew { background: var(--color-gold); color: var(--color-ink); }
+.custom { background: var(--color-surface-raised); border: 1px solid var(--color-border); color: var(--color-ink-light); }
