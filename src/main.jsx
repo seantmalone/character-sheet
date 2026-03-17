@@ -8,7 +8,7 @@ import './styles/typography.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/character-sheet">
       <App />
     </BrowserRouter>
   </React.StrictMode>
