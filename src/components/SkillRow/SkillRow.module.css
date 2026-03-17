@@ -4,17 +4,17 @@
   border-radius: var(--radius-sm);
   transition: background var(--transition);
 }
-.row:hover { background: var(--color-parchment-dark); }
+.row:hover { background: var(--color-surface-raised); }
 .row.proficient { font-weight: var(--weight-medium); }
 .dot {
   width: 12px; height: 12px; border-radius: 50%;
-  border: 2px solid var(--color-border);
+  border: 2px solid var(--color-border-light);
   background: transparent; flex-shrink: 0;
   transition: all var(--transition);
 }
-.dot.filled { background: var(--color-accent); border-color: var(--color-accent); }
+.dot.filled { background: var(--color-gold); border-color: var(--color-gold); }
 .dot.expert { border-style: dashed; }
 .dot.expert.filled { background: var(--color-gold); border-color: var(--color-gold); }
-.bonus { font-weight: var(--weight-bold); min-width: 2.5ch; text-align: right; font-size: var(--text-sm); }
-.name { flex: 1; font-size: var(--text-sm); }
+.bonus { font-family: var(--font-serif); font-weight: var(--weight-bold); min-width: 2.5ch; text-align: right; font-size: var(--text-sm); color: var(--color-ink); }
+.name { flex: 1; font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-ink-light); }
 .ability { font-size: var(--text-xs); color: var(--color-muted); }

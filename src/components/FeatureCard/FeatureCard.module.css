@@ -1,21 +1,21 @@
 .card {
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: var(--color-surface);
+  background: var(--color-surface-raised);
   overflow: hidden;
 }
 .header {
   display: flex; align-items: center;
   background: var(--color-surface-raised);
 }
-.header:hover { background: var(--color-parchment-dark); }
+.header:hover { background: var(--color-surface); }
 .headerMain {
   display: flex; align-items: center; justify-content: space-between;
   flex: 1;
   padding: var(--space-sm) var(--space-md);
   cursor: pointer;
 }
-.name { font-weight: var(--weight-medium); }
+.name { font-family: var(--font-serif); font-weight: var(--weight-medium); color: var(--color-ink); letter-spacing: 0.05em; }
 .meta { display: flex; align-items: center; gap: var(--space-md); }
 .chevron { font-size: var(--text-xs); color: var(--color-muted); }
 .deleteBtn {
@@ -23,10 +23,12 @@
   color: var(--color-muted); font-size: var(--text-md); line-height: 1;
   padding: var(--space-sm); flex-shrink: 0;
 }
-.deleteBtn:hover { color: var(--color-danger, #dc2626); }
+.deleteBtn:hover { color: var(--color-accent); }
 .desc {
   padding: var(--space-md);
-  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
   line-height: 1.6;
-  border-top: 1px solid var(--color-border-light);
+  color: var(--color-ink-light);
+  border-top: 1px solid var(--color-border);
 }
