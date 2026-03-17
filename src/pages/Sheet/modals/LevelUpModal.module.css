@@ -1,7 +1,7 @@
 .progress { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-lg); }
 .step { padding: 2px var(--space-sm); border-radius: var(--radius-sm); font-size: var(--text-xs); background: var(--color-bg-alt); color: var(--color-muted); }
-.active { background: var(--color-accent); color: white; font-weight: var(--weight-bold); }
-.done { background: var(--color-bg-alt); color: var(--color-accent); }
+.active { background: var(--color-bg-alt); border-color: var(--color-gold); color: var(--color-gold); font-weight: var(--weight-bold); }
+.done { background: var(--color-bg-alt); color: var(--color-gold); }
 .section { display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-lg); }
 .hpButtons { display: flex; gap: var(--space-sm); }
 .preview { font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-accent); }

@@ -1,4 +1,4 @@
 .form { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-md); background: var(--color-bg-alt); border-radius: var(--radius-md); border: 1px solid var(--color-border); }
 .form label { display: flex; flex-direction: column; gap: 2px; font-size: var(--text-sm); }
 .actions { display: flex; justify-content: flex-end; gap: var(--space-sm); }
-.primary { background: var(--color-accent); color: white; padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); }
+.primary { background: var(--color-gold); color: var(--color-parchment); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); }

@@ -56,6 +56,4 @@
   --shadow-lg: 0 8px 24px rgba(44,24,16,0.25);
   --transition: 150ms ease;
 
-  /* Summary bar height — update after measuring two-row SummaryBar */
-  --summary-bar-height: 72px;
 }
