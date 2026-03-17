@@ -39,6 +39,20 @@ Two new tokens added:
 --color-disabled: #7a6040;    /* disabled button text */
 ```
 
+**`--color-bg-alt` (existing undefined token):** This token is used in 7 files (`ClassBuilder.module.css`, `RaceBuilder.module.css`, `LevelUpModal.module.css`, `CustomSpellForm.module.css`, `FeaturesTab.module.css`, `SummaryBar.module.css`, `Wizard.module.css`) but is not defined in `tokens.css`. Add it alongside the other surface tokens:
+
+```css
+--color-bg-alt: #1a1208;    /* alias for --color-surface-raised; list item and form backgrounds */
+```
+
+**`--color-hp` (existing undefined token):** `SummaryBar.module.css` currently references `var(--color-hp)` for the HP bar fill, but this token is also not defined in `tokens.css` (existing bug). The redesign intentionally replaces it — the HP bar will use the danger crimson, fitting the dark fantasy aesthetic. Add the token to `tokens.css`:
+
+```css
+--color-hp: var(--color-accent);   /* HP bar fill — danger crimson in dark theme */
+```
+
+The `SummaryBar.module.css` `.hpFill` rule in Section 5 keeps `background: var(--color-accent)` (which resolves to `#9b1e1e`). No existing test checks the HP bar color, so this is safe to change.
+
 ---
 
 ## 2. Typography Changes (`index.html` + `src/styles/tokens.css` + `src/styles/typography.css`)
@@ -65,7 +79,7 @@ Add to `<head>` before existing styles:
 
 - `h1–h3`: already use `var(--font-serif)` — automatically get Cinzel. Increase `letter-spacing` to `0.04em`.
 - `h4`: add `letter-spacing: 0.06em; text-transform: uppercase;`
-- `.label`: bump from `11px` to `10px` (it was rendered at 9px in many places — ensure min 10px), keep uppercase + letter-spacing, color uses `var(--color-muted)`.
+- `.label`: reduce from `11px` to `10px` (addresses inconsistency where it was rendering at 9px in many places). Keep uppercase + letter-spacing; color uses `var(--color-muted)`. Note: this goes below `--text-xs: 11px` — set the value as a literal `10px` in `typography.css` rather than using the token.
 - `.subtitle`: change to `font-family: var(--font-body); font-style: italic;`
 
 ---
@@ -118,8 +132,14 @@ All buttons use `font-family: var(--font-serif)` (Cinzel), `font-size: var(--tex
 ```
 <header className={styles.bar}>
   <div className={styles.identity}>...</div>
-  <div className={styles.stats}>...</div>
-  <div className={styles.deathSaves}>...</div>   {/* conditional */}
+  <div className={styles.stats}>
+    <div className={styles.hpBlock}>...</div>
+    <div className={styles.stat}>AC</div>
+    <div className={styles.stat}>Init</div>
+    <div className={styles.stat}>Speed</div>
+    <button className={styles.inspiration}>★</button>   {/* ← inside .stats */}
+  </div>
+  {isDying && <div className={styles.deathSaves}>...</div>}
   <div className={styles.actions}>...</div>
 </header>
 ```
@@ -129,14 +149,35 @@ All buttons use `font-family: var(--font-serif)` (Cinzel), `font-size: var(--tex
 <header className={styles.bar}>
   <div className={styles.topRow}>
     <div className={styles.identity}>...</div>       {/* name + subtitle */}
+    <button
+      className={[styles.inspiration, meta.inspiration ? styles.inspOn : ''].join(' ')}
+      onClick={toggleInspiration}
+      aria-pressed={meta.inspiration}
+      title="Inspiration">
+      ★
+    </button>
     <div className={styles.actions}>...</div>         {/* rest + levelup + settings */}
   </div>
   <div className={styles.statsRow}>
     <div className={styles.hpBlock}>...</div>
-    <div className={styles.stat}>AC</div>
-    <div className={styles.stat}>Init</div>
-    <div className={styles.stat}>Speed</div>
-    <div className={styles.stat}>Hit Dice</div>
+    <div className={styles.stat}>
+      <span className={styles.statValue}>{ac}</span>
+      <span className={styles.statLabel}>AC</span>
+    </div>
+    <div className={styles.stat}>
+      <span className={styles.statValue}>{initiative >= 0 ? `+${initiative}` : initiative}</span>
+      <span className={styles.statLabel}>Init</span>
+    </div>
+    <div className={styles.stat}>
+      <input type="number" aria-label="Speed" className={styles.speedInput}
+        value={combat.speed}
+        onChange={e => updateCharacter(character.id, { combat: { speed: Number(e.target.value) } })} />
+      <span className={styles.statLabel}>Speed</span>
+    </div>
+    <div className={styles.stat}>
+      <span className={styles.statValue}>{hp.hitDiceRemaining ?? hp.max}</span>
+      <span className={styles.statLabel}>Hit Dice</span>
+    </div>
     {isDying && <div className={styles.deathSaves}>...</div>}
   </div>
 </header>
@@ -165,7 +206,20 @@ The inspiration button moves into `topRow` (next to character name). Hit Dice re
 .hpFill   { height: 100%; background: var(--color-accent); border-radius: 2px; transition: width var(--transition); }
 
 .actions  { display: flex; align-items: center; gap: var(--space-sm); }
+
+/* Death saves — retain all existing .deathSaves rules unchanged; they move from a top-level
+   flex child of <header> into .statsRow, which is also a flex container. Add align-self:center
+   to prevent it from stretching to full statsRow height: */
+.deathSaves { align-self: center; }
+
+/* Settings menu — retain from existing SummaryBar.module.css */
+.gearWrapper      { position: relative; }
+.gear             { background: transparent; border: none; cursor: pointer; color: var(--color-muted); font-size: var(--text-lg); }
+.settingsMenu     { position: absolute; right: 0; top: 100%; background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-sm); z-index: 10; min-width: 160px; display: flex; flex-direction: column; gap: var(--space-xs); }
+.settingsMenu button:hover { background: var(--color-bg-alt); }
 ```
+
+> **Note on `--summary-bar-height`:** `tokens.css` defines `--summary-bar-height: 72px`. After the two-row change, the actual height will increase. Update this token value in `tokens.css` to match the real rendered height (measure after implementation). If confirmed unused by any layout file, remove it instead.
 
 ---
 
@@ -298,7 +352,7 @@ The inspiration button moves into `topRow` (next to character name). Hit Dice re
 Print view retains the **light parchment theme** — dark backgrounds waste printer ink and look poor on paper. Add a scoped override at the top of the file:
 
 ```css
-.printPage {
+.page {
   --color-parchment: #f5f0e8;
   --color-parchment-dark: #e8e0d0;
   --color-ink: #2c1810;
@@ -307,13 +361,14 @@ Print view retains the **light parchment theme** — dark backgrounds waste prin
   --color-gold: #c8a951;
   --color-surface: #ffffff;
   --color-surface-raised: #faf7f2;
+  --color-bg-alt: #faf7f2;
   --color-border: #c4b89a;
   --color-border-light: #ddd5c0;
   --color-muted: #8a7a6a;
 }
 ```
 
-This scopes the old light-theme values to the `.printPage` container so print output is unaffected.
+This scopes the old light-theme values to the `.page` container so print output is unaffected. `--color-bg-alt` is also included here since it needs the light value in print context.
 
 ---
 
@@ -336,7 +391,11 @@ This scopes the old light-theme values to the `.printPage` container so print ou
 | `src/pages/Wizard/Wizard.module.css` | stepDot/stepLine/stepLabel styles |
 | `src/pages/Wizard/WizardStep.module.css` | Dark background, gold buttons |
 | `src/pages/Homebrew/HomebrewPage.module.css` | Dark background |
-| `src/pages/Print/PrintView.module.css` | Scoped light-theme override on `.printPage` |
+| `src/pages/Homebrew/ClassBuilder.module.css` | Uses `--color-bg-alt`; dark form/item backgrounds |
+| `src/pages/Homebrew/RaceBuilder.module.css` | Uses `--color-bg-alt`; dark form/item backgrounds |
+| `src/pages/Sheet/modals/LevelUpModal.module.css` | Uses `--color-bg-alt`; dark step indicator backgrounds |
+| `src/pages/Sheet/tabs/CustomSpellForm.module.css` | Uses `--color-bg-alt`; dark form background |
+| `src/pages/Print/PrintView.module.css` | Scoped light-theme override on `.page` |
 | `src/pages/Sheet/tabs/AbilitiesTab.module.css` | Dark cards, gold proficiency dots |
 | `src/pages/Sheet/tabs/CombatTab.module.css` | Dark tables, condition styles |
 | `src/pages/Sheet/tabs/SpellsTab.module.css` | Prepared/unprepared badge fix |
