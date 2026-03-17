@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSettingsStore } from '../../store/settings'
 import { WizardProvider, useWizard } from './WizardContext'
 import Step1Name from './Step1Name'
@@ -18,10 +19,25 @@ function WizardInner() {
     <div className={styles.wizard}>
       <nav className={styles.progress} aria-label="Creation steps">
         {STEP_LABELS.map((label, i) => (
-          <span key={label}
-            className={[styles.dot, i + 1 === step ? styles.active : '', i + 1 < step ? styles.done : ''].filter(Boolean).join(' ')}>
-            {label}
-          </span>
+          <React.Fragment key={label}>
+            <div className={styles.stepCol}>
+              <div className={[
+                styles.stepDot,
+                i + 1 === step ? styles.active : '',
+                i + 1 < step ? styles.done : ''
+              ].filter(Boolean).join(' ')}>
+                {i + 1 < step ? '✓' : i + 1}
+              </div>
+              <div className={[
+                styles.stepLabel,
+                i + 1 === step ? styles.active : '',
+                i + 1 < step ? styles.done : ''
+              ].filter(Boolean).join(' ')}>{label}</div>
+            </div>
+            {i < STEP_LABELS.length - 1 && (
+              <div className={[styles.stepLine, i + 1 < step ? styles.done : ''].filter(Boolean).join(' ')} />
+            )}
+          </React.Fragment>
         ))}
       </nav>
       <StepComponent />
