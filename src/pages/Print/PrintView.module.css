@@ -1,3 +1,19 @@
+/* Scoped light-theme override — print must not use dark backgrounds */
+.page {
+  --color-parchment: #f5f0e8;
+  --color-parchment-dark: #e8e0d0;
+  --color-ink: #2c1810;
+  --color-ink-light: #5c3d2e;
+  --color-accent: #8b1a1a;
+  --color-gold: #c8a951;
+  --color-surface: #ffffff;
+  --color-surface-raised: #faf7f2;
+  --color-bg-alt: #faf7f2;
+  --color-border: #c4b89a;
+  --color-border-light: #ddd5c0;
+  --color-muted: #8a7a6a;
+}
+
 .page { max-width: 800px; margin: 0 auto; padding: var(--space-xl) var(--space-md); font-size: 12pt; }
 .printBtn { display: flex; gap: var(--space-sm); margin-bottom: var(--space-lg); }
 .header { margin-bottom: var(--space-lg); border-bottom: 2px solid var(--color-border); padding-bottom: var(--space-md); }
