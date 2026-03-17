@@ -6,8 +6,8 @@
 }
 .headerActions { display: flex; align-items: center; gap: var(--space-md); }
 .toggle { display: flex; align-items: center; gap: var(--space-xs); font-size: var(--text-sm); cursor: pointer; }
-.newBtn { background: var(--color-accent); color: white; padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-weight: var(--weight-medium); }
-.newBtn:hover { background: var(--color-accent-hover); }
+.newBtn { background: var(--color-gold); color: var(--color-parchment); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm); font-family: var(--font-serif); font-size: var(--text-xs); letter-spacing: 0.07em; font-weight: var(--weight-bold); }
+.newBtn:hover { background: var(--color-accent); }
 .empty { text-align: center; padding: var(--space-2xl); display: flex; flex-direction: column; align-items: center; gap: var(--space-md); color: var(--color-muted); }
 .grid { display: flex; flex-direction: column; gap: var(--space-md); }
-.homebrew { margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border-light); }
+.homebrew { margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); }
