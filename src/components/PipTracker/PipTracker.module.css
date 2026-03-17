@@ -3,9 +3,10 @@
 .pip {
   width: 16px; height: 16px;
   border-radius: 50%;
-  border: 2px solid var(--color-accent);
+  border: 2px solid var(--color-border-light);
   background: transparent;
   transition: background var(--transition);
+  cursor: pointer;
 }
-.pip.filled { background: var(--color-accent); }
+.pip.filled { background: var(--color-gold); border-color: var(--color-gold); }
 .pip:hover { opacity: 0.7; }

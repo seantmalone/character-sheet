@@ -2,15 +2,20 @@
   display: inline-flex; align-items: center; gap: var(--space-xs);
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  font-size: var(--text-sm);
+  border: 1px solid var(--color-border-light);
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-dim);
   transition: all var(--transition);
+  cursor: pointer;
 }
 .pill.active {
-  background: var(--color-danger);
-  border-color: var(--color-danger);
-  color: white;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #f0d8d8;
 }
 .name { font-weight: var(--weight-medium); }
 .stepper { display: flex; align-items: center; gap: 4px; }

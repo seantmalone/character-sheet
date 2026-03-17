@@ -1,12 +1,15 @@
 .roller { display: inline-flex; align-items: center; gap: var(--space-sm); }
 .btn {
   padding: var(--space-xs) var(--space-sm);
-  background: var(--color-accent);
-  color: white;
+  background: var(--color-gold);
+  color: var(--color-parchment);
   border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
+  font-family: var(--font-serif);
+  font-size: var(--text-xs);
+  letter-spacing: 0.07em;
+  font-weight: var(--weight-bold);
   transition: background var(--transition);
 }
-.btn:hover { background: var(--color-accent-hover); }
-.result { font-weight: var(--weight-bold); min-width: 2ch; text-align: center; }
+.btn:hover { background: var(--color-accent); }
+.result { font-family: var(--font-serif); font-weight: var(--weight-bold); min-width: 2ch; text-align: center; color: var(--color-ink); }
 .error { color: var(--color-danger); font-size: var(--text-sm); }
