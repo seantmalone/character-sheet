@@ -56,14 +56,51 @@ export default function SummaryBar({ character, derived, onShortRest, onLongRest
 
   return (
     <header className={styles.bar}>
-      <div className={styles.identity}>
-        <h1 className={styles.name}>{meta.characterName}</h1>
-        <p className={styles.subtitle}>
-          Level {meta.level} {meta.race} {meta.class}
-        </p>
+      <div className={styles.topRow}>
+        <div className={styles.identity}>
+          <h1 className={styles.name}>{meta.characterName}</h1>
+          <p className={styles.subtitle}>
+            Level {meta.level} {meta.race} {meta.class}
+          </p>
+        </div>
+        <button
+          className={[styles.inspiration, meta.inspiration ? styles.inspOn : ''].join(' ')}
+          onClick={toggleInspiration}
+          aria-pressed={meta.inspiration}
+          title="Inspiration">
+          ★
+        </button>
+        <div className={styles.actions}>
+          <div className={styles.restMenu}>
+            <select aria-label="Rest menu" onChange={e => { if (e.target.value === 'short') onShortRest(); else if (e.target.value === 'long') onLongRest(); e.target.value = '' }}>
+              <option value="">Rest…</option>
+              <option value="short">Short Rest</option>
+              <option value="long">Long Rest</option>
+            </select>
+          </div>
+          <button
+            className={[styles.levelUpBtn, canLevelUp ? styles.levelUpReady : ''].join(' ')}
+            onClick={onLevelUp}
+            disabled={!canLevelUp}
+            title={canLevelUp ? 'Level Up!' : `${meta.xp} / ${xpThreshold} XP`}>
+            Level Up
+          </button>
+          <div className={styles.gearWrapper}>
+            <button className={styles.gear} onClick={() => setSettingsOpen(o => !o)} aria-label="Settings">⚙</button>
+            {settingsOpen && (
+              <div className={styles.settingsMenu}>
+                <label>
+                  <input type="checkbox" checked={character.settings.advancedMode} onChange={toggleAdvancedMode} />
+                  Advanced Mode
+                </label>
+                <button onClick={() => { exportCharacter(character); setSettingsOpen(false) }}>Export JSON</button>
+                <button onClick={() => navigate(`/character/${character.id}/print`)}>Print / PDF</button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-
-      <div className={styles.stats}>
+      <div className={styles.statsRow}>
         <div className={styles.hpBlock}>
           <label className={styles.statLabel}>HP</label>
           <div className={styles.hpRow}>
@@ -89,17 +126,14 @@ export default function SummaryBar({ character, derived, onShortRest, onLongRest
             <div className={styles.hpFill} style={{ width: `${Math.max(0, Math.min(100, (hp.current / hp.max) * 100))}%` }} />
           </div>
         </div>
-
         <div className={styles.stat}>
           <span className={styles.statValue}>{ac}</span>
           <span className={styles.statLabel}>AC</span>
         </div>
-
         <div className={styles.stat}>
           <span className={styles.statValue}>{initiative >= 0 ? `+${initiative}` : initiative}</span>
           <span className={styles.statLabel}>Init</span>
         </div>
-
         <div className={styles.stat}>
           <input type="number" aria-label="Speed"
             className={styles.speedInput}
@@ -107,69 +141,32 @@ export default function SummaryBar({ character, derived, onShortRest, onLongRest
             onChange={e => updateCharacter(character.id, { combat: { speed: Number(e.target.value) } })} />
           <span className={styles.statLabel}>Speed</span>
         </div>
-
-        <button
-          className={[styles.inspiration, meta.inspiration ? styles.inspOn : ''].join(' ')}
-          onClick={toggleInspiration}
-          aria-pressed={meta.inspiration}
-          title="Inspiration">
-          ★
-        </button>
-      </div>
-
-      {isDying && (
-        <div className={styles.deathSaves} aria-label="Death saves">
-          <span className={styles.dsLabel}>Death Saves</span>
-          <div className={styles.dsRow}>
-            <span>Successes:</span>
-            {[0,1,2].map(i => (
-              <button key={i} className={[styles.dsPip, i < deathSaves.successes ? styles.dsSuccess : ''].join(' ')}
-                onClick={() => toggleSave('successes', i)} aria-label={`Success ${i+1}`} />
-            ))}
-          </div>
-          <div className={styles.dsRow}>
-            <span>Failures:</span>
-            {[0,1,2].map(i => (
-              <button key={i} className={[styles.dsPip, i < deathSaves.failures ? styles.dsFailure : ''].join(' ')}
-                onClick={() => toggleSave('failures', i)} aria-label={`Failure ${i+1}`} />
-            ))}
-          </div>
-          <button className={styles.dsRollBtn} onClick={rollDeathSave} aria-label="Roll death save">
-            Roll d20
-          </button>
+        <div className={styles.stat}>
+          <span className={styles.statValue}>{hp.hitDiceRemaining ?? hp.max}</span>
+          <span className={styles.statLabel}>Hit Dice</span>
         </div>
-      )}
-
-      <div className={styles.actions}>
-        <div className={styles.restMenu}>
-          <select aria-label="Rest menu" onChange={e => { if (e.target.value === 'short') onShortRest(); else if (e.target.value === 'long') onLongRest(); e.target.value = '' }}>
-            <option value="">Rest…</option>
-            <option value="short">Short Rest</option>
-            <option value="long">Long Rest</option>
-          </select>
-        </div>
-
-        <button
-          className={[styles.levelUpBtn, canLevelUp ? styles.levelUpReady : ''].join(' ')}
-          onClick={onLevelUp}
-          disabled={!canLevelUp}
-          title={canLevelUp ? 'Level Up!' : `${meta.xp} / ${xpThreshold} XP`}>
-          Level Up
-        </button>
-
-        <div className={styles.gearWrapper}>
-          <button className={styles.gear} onClick={() => setSettingsOpen(o => !o)} aria-label="Settings">⚙</button>
-          {settingsOpen && (
-            <div className={styles.settingsMenu}>
-              <label>
-                <input type="checkbox" checked={character.settings.advancedMode} onChange={toggleAdvancedMode} />
-                Advanced Mode
-              </label>
-              <button onClick={() => { exportCharacter(character); setSettingsOpen(false) }}>Export JSON</button>
-              <button onClick={() => navigate(`/character/${character.id}/print`)}>Print / PDF</button>
+        {isDying && (
+          <div className={styles.deathSaves} aria-label="Death saves">
+            <span className={styles.dsLabel}>Death Saves</span>
+            <div className={styles.dsRow}>
+              <span>Successes:</span>
+              {[0,1,2].map(i => (
+                <button key={i} className={[styles.dsPip, i < deathSaves.successes ? styles.dsSuccess : ''].join(' ')}
+                  onClick={() => toggleSave('successes', i)} aria-label={`Success ${i+1}`} />
+              ))}
             </div>
-          )}
-        </div>
+            <div className={styles.dsRow}>
+              <span>Failures:</span>
+              {[0,1,2].map(i => (
+                <button key={i} className={[styles.dsPip, i < deathSaves.failures ? styles.dsFailure : ''].join(' ')}
+                  onClick={() => toggleSave('failures', i)} aria-label={`Failure ${i+1}`} />
+              ))}
+            </div>
+            <button className={styles.dsRollBtn} onClick={rollDeathSave} aria-label="Roll death save">
+              Roll d20
+            </button>
+          </div>
+        )}
       </div>
     </header>
   )
