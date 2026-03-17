@@ -1,21 +1,27 @@
 :root {
-  /* Colors */
-  --color-parchment: #f5f0e8;
-  --color-parchment-dark: #e8e0d0;
-  --color-ink: #2c1810;
-  --color-ink-light: #5c3d2e;
-  --color-accent: #8b1a1a;
-  --color-accent-hover: #6b1414;
-  --color-gold: #c8a951;
+  /* Colors — dark fantasy palette */
+  --color-parchment: #0f0a04;
+  --color-parchment-dark: #140e04;
+  --color-ink: #e8c87a;
+  --color-ink-light: #c8a85a;
+  --color-accent: #9b1e1e;
+  --color-accent-hover: #7a1515;
+  --color-gold: #c8a830;
   --color-success: #2d6a2d;
-  --color-warning: #8b6914;
-  --color-danger: #8b1a1a;
-  --color-surface: #ffffff;
-  --color-surface-raised: #faf7f2;
-  --color-border: #c4b89a;
-  --color-border-light: #ddd5c0;
-  --color-muted: #8a7a6a;
-  --color-overlay: rgba(44, 24, 16, 0.5);
+  --color-warning: #c8a830;
+  --color-danger: #9b1e1e;
+  --color-surface: #241a07;
+  --color-surface-raised: #1a1208;
+  --color-border: #2e2008;
+  --color-border-light: #3d2e0f;
+  --color-muted: #b09050;
+  --color-overlay: rgba(0, 0, 0, 0.75);
+
+  /* New tokens */
+  --color-muted-dim: #9a8050;
+  --color-disabled: #7a6040;
+  --color-bg-alt: #1a1208;
+  --color-hp: var(--color-accent);
 
   /* Spacing */
   --space-xs: 4px;
@@ -26,7 +32,8 @@
   --space-2xl: 48px;
 
   /* Typography */
-  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-serif: 'Cinzel', Georgia, serif;
+  --font-body: 'Crimson Text', Georgia, serif;
   --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
   --font-mono: 'Courier New', monospace;
   --text-xs: 11px;
@@ -49,6 +56,6 @@
   --shadow-lg: 0 8px 24px rgba(44,24,16,0.25);
   --transition: 150ms ease;
 
-  /* Summary bar height — referenced by sheet layout */
+  /* Summary bar height — update after measuring two-row SummaryBar */
   --summary-bar-height: 72px;
 }
